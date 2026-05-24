@@ -2,7 +2,7 @@
 
 # Integrantes:
 
-- Boris Perez
+- Boris Pérez
 - Bastian Ampuero
 
 # Descripción del Proyecto
