@@ -48,7 +48,7 @@ CREATE DATABASE hotelpro;
 
 ```properties
 spring.datasource.username=root
-spring.datasource.password=TU_PASSWORD
+spring.datasource.password=
 ```
 
 # 3 Ejecutar proyecto:
