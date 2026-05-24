@@ -69,16 +69,16 @@ La aplicación utiliza autenticación mediante token:
 Authorization: Bearer TOKEN
 
 
-# Endpoints Principales
+### Endpoints Principales
 
-# Usuarios
+## Usuarios
 - /api/usuarios
 
-# Clientes
+## Clientes
 - /api/clientes
 
-# Habitaciones
+## Habitaciones
 - /api/habitaciones
 
-# Reservas
+## Reservas
 - /api/reservas
