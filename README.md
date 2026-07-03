@@ -21,13 +21,23 @@ HotelPro es una aplicación backend desarrollada con Spring Boot que implementa 
 - Logs con SLF4J
 - Persistencia con JPA/Hibernate
 - Comunicación REST entre módulos
+- JWT
+- API Gateway
+- Swagger
+- Webclient
 
 # Herramientas Utilizadas
 
 - Java 21
-- Spring Boot
+- Spring Boot 4
 - Spring Data JPA
-- Spring Security
+- Spring Security (JWT)
+- Spring Cloud Gateway
+- Spring Data JPA
+- JUnit 5
+- Swagger
+- WebClient
+- Mockito
 - Hibernate
 - MySQL
 - Maven
@@ -38,26 +48,26 @@ HotelPro es una aplicación backend desarrollada con Spring Boot que implementa 
 
 
 
-# 1 Crear base de datos:
+## 1 Crear base de datos:
 
 ```sql
 CREATE DATABASE hotelpro;
 ```
 
-# 2 Configurar application.properties:
+## 2 Configurar application.properties:
 
 ```properties
 spring.datasource.username=root
 spring.datasource.password=
 ```
 
-# 3 Ejecutar proyecto:
+## 3 Ejecutar proyecto:
 
 Entrar en la carpeta del proyecto y dirigirse a ("/duoc.hotelpro"), y dirigirse a ("HotelproApplication.java").
 
 
 
-# 4. Acceder al backend
+## 4. Acceder al backend
 
 
 Abrir postman y ingresar ("http://localhost:8080/api/"), con la dirección a la cual desea ir
@@ -68,17 +78,7 @@ Abrir postman y ingresar ("http://localhost:8080/api/"), con la dirección a la 
 La aplicación utiliza autenticación mediante token:
 Authorization: Bearer TOKEN
 
+# Repositorio
 
-# Endpoints Principales
+https://github.com/FoxskyToo/hotelpro
 
-Usuarios
-- /api/usuarios
-
-Clientes
-- /api/clientes
-
-Habitaciones
-- /api/habitaciones
-
-Reservas
-- /api/reservas
