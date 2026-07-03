@@ -3,7 +3,7 @@ package duoc.hotelpro.reservas;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClient;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class ReservaService {
 
     private final ReservaRepository reservaRepository;
-    private final RestClient restClient;
+    private final WebClient webClient;
 
     public List<Reserva> listar() {
         log.info("Listando reservas");
@@ -75,10 +75,11 @@ public class ReservaService {
 
     private void validarCliente(Long clienteId) {
         try {
-            restClient.get()
+            webClient.get()
                     .uri("/api/clientes/{id}", clienteId)
                     .retrieve()
-                    .body(String.class);
+                    .bodyToMono(String.class)
+                    .block();
 
             log.info("Cliente {} validado correctamente", clienteId);
         } catch (Exception e) {
@@ -89,10 +90,11 @@ public class ReservaService {
 
     private void validarHabitacion(Long habitacionId) {
         try {
-            restClient.get()
+            webClient.get()
                     .uri("/api/habitaciones/{id}", habitacionId)
                     .retrieve()
-                    .body(String.class);
+                    .bodyToMono(String.class)
+                    .block();
 
             log.info("Habitación {} validada correctamente", habitacionId);
         } catch (Exception e) {

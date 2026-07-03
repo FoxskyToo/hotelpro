@@ -19,7 +19,13 @@ public class WebConfig implements WebMvcConfigurer {
                         "/api/auth/login",
                         "/api/usuarios",
                         "/api/clientes/**",
-                        "/api/habitaciones/**"
+                        "/api/habitaciones/**",
+                        "/api/reservas/**",
+                        "/api/servicios/**",
+                        "/api/empleados/**",
+                        "/swagger-ui/**",
+                        "/v3/api-docs/**",
+                        "/swagger-ui.html"
                 );
     }
 }

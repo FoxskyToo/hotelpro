@@ -2,9 +2,15 @@ package duoc.hotelpro.config;
 
 import duoc.hotelpro.auth.AuthException;
 import duoc.hotelpro.clientes.ClienteException;
+import duoc.hotelpro.consumos.ConsumoException;
+import duoc.hotelpro.empleados.EmpleadoException;
 import duoc.hotelpro.habitaciones.HabitacionException;
+import duoc.hotelpro.mantenimientos.MantenimientoException;
+import duoc.hotelpro.pagos.PagoException;
 import duoc.hotelpro.reservas.ReservaException;
+import duoc.hotelpro.servicios.ServicioException;
 import duoc.hotelpro.usuarios.UsuarioException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -19,14 +25,21 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler({
+            AuthException.class,
             ClienteException.class,
             HabitacionException.class,
-            UsuarioException.class,
             ReservaException.class,
-            AuthException.class
+            UsuarioException.class,
+            ServicioException.class,
+            PagoException.class,
+            ConsumoException.class,
+            EmpleadoException.class,
+            MantenimientoException.class
     })
     public ResponseEntity<Map<String, Object>> manejarErroresNegocio(RuntimeException ex) {
+
         Map<String, Object> error = new HashMap<>();
+
         error.put("fecha", LocalDateTime.now());
         error.put("estado", HttpStatus.BAD_REQUEST.value());
         error.put("error", "Error de negocio");
@@ -37,6 +50,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> manejarValidaciones(MethodArgumentNotValidException ex) {
+
         Map<String, Object> error = new HashMap<>();
         Map<String, String> validaciones = new HashMap<>();
 
@@ -54,7 +68,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> manejarErrorGeneral(Exception ex) {
+
         Map<String, Object> error = new HashMap<>();
+
         error.put("fecha", LocalDateTime.now());
         error.put("estado", HttpStatus.INTERNAL_SERVER_ERROR.value());
         error.put("error", "Error interno del servidor");

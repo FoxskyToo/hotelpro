@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: hotelpro
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/hotelpro?useSSL=false&serverTimezone=America/Santiago&allowPublicKeyRetrieval=true
+    username: root
+    password: ""
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: false
+
+server:
+  port: 8080
