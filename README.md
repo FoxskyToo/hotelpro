@@ -48,29 +48,28 @@ HotelPro es una aplicación backend desarrollada con Spring Boot que implementa 
 
 
 
-## 1 Crear base de datos:
+## 1. Crear base de datos:
 
 ```sql
 CREATE DATABASE hotelpro;
 ```
 
-## 2 Configurar application.properties:
 
-```properties
-spring.datasource.username=root
-spring.datasource.password=
-```
-
-## 3 Ejecutar proyecto:
+## 2. Ejecutar proyecto:
 
 Entrar en la carpeta del proyecto y dirigirse a ("/duoc.hotelpro"), y dirigirse a ("HotelproApplication.java").
 
 
 
-## 4. Acceder al backend
+## 3. Acceder al backend
 
 
-Abrir postman y ingresar ("http://localhost:8080/api/"), con la dirección a la cual desea ir
+Abrir postman y ingresar ("http://localhost:8080/api/"), con la dirección a la cual desea ir.
+
+
+## 4. Abrir Swagger
+
+Para abrir el Swagger hay que ingresar al siguiente link: ("http://localhost:8080/swagger-ui/index.html").
 
 
 # Seguridad
